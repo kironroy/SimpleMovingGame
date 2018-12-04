@@ -27,7 +27,7 @@ namespace SimpleMovingGame
             while (true)
             {
 
-                Draw();
+                drawGameboard();
                 Console.WriteLine();
                 Console.WriteLine($" Score: {score}");
                 if (playerCollideWithEnemy()) break;
@@ -35,6 +35,7 @@ namespace SimpleMovingGame
                 {
                     ++score;
                     createItem();
+                    drawGameboard();
                 }
 
 
@@ -106,12 +107,14 @@ namespace SimpleMovingGame
         }
 
         // draw the game
-        static void Draw()
+        static void drawGameboard()
         {
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine($" Player's position {playerPosX}, {playerPosY}");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($" Enemy's position  {enemyPosX}, {enemyPosY}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(); // breakline
 
             for (int y = 1; y <= height; ++y)
