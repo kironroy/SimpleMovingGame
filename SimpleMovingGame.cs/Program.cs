@@ -1,4 +1,6 @@
 ﻿
+// https://www.youtube.com/watch?v=ZD-QOSswwDI
+
 namespace SimpleMovingGame
 {
 
@@ -24,4 +26,3 @@ namespace SimpleMovingGame
     }
 }
 
-// GameOver.GameOverinRed();
