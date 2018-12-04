@@ -1,76 +1,26 @@
-﻿using System;
-
-
-namespace SimpleMovingGame
+﻿namespace SimpleMovingGame
 {
- 
-   
-  public class Program
+
+
+    public class Program
     {
 
-        // variables
-        static int playerPosX = 1, playerPosY = 1;
-        static int length = 10, height = 10; // instantion on 1 line
-        static string player = " *", space = " |";
+
 
         // main game
-        static void Main(string[] args)
+        static void Main()
         {
+            // intro
+            GameStart.GameOverinBlue();
 
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            // game run main class
+            GameRun.RunTheGame();     
 
-            while (true)
-            {
-                
-                Draw();
-
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                ConsoleKeyInfo keyPressed = Console.ReadKey();
-
-                if((keyPressed.Key == ConsoleKey.W  && playerPosY != 1) || (keyPressed.Key == ConsoleKey.S && playerPosY != height))
-                {
-                    playerPosY += (keyPressed.Key == ConsoleKey.S) ? 1 : -1;
-                }
-
-                if ((keyPressed.Key == ConsoleKey.A && playerPosX != 1) || (keyPressed.Key == ConsoleKey.D && playerPosX != length))
-                {
-                    playerPosX += (keyPressed.Key == ConsoleKey.D) ? 1 : -1;
-                }
-
-               
-
-
-            }
+            // gameover scene
+            GameOver.GameOverinRed(); 
         }
-
-        // draw the game
-        static void Draw()
-        {
-            Console.Clear();
-            Console.WriteLine($"          {playerPosX}, {playerPosY}\n");
-            Console.WriteLine(); // breakline
-
-            for (int y = 1; y <= height; ++y)
-            {
-                for (int x = 1; x <= length; ++x)
-                {
-                    if (x == playerPosX && y == playerPosY) Console.Write(player);
-                    else Console.Write(space);
-                }
-                Console.WriteLine();
-            }
-
-
-
-            
-        }
-
-       
-
-
 
     }
 }
+
+// GameOver.GameOverinRed();
