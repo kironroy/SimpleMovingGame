@@ -1,4 +1,5 @@
-﻿namespace SimpleMovingGame
+﻿
+namespace SimpleMovingGame
 {
 
 

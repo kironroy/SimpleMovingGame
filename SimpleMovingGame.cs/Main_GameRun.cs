@@ -9,17 +9,43 @@ namespace SimpleMovingGame
         static int playerPosX = 1, playerPosY = 1; // instantion on 1 line
         static int enemyPosX, enemyPosY;
         static int itemPosX, itemPosY;
-        static int score; 
+        static int score, highScore; 
         static int length = 10, height = 10;
-        static string player = " *", space = " |", enemy = " @", item = " $";
+        static string player = " O", space = " |", enemy = " X", item = " $";
         static Random random = new Random();
 
         // main game
         public static void RunTheGame()
         {
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            bool playingGame = true;
 
+            while (playingGame)
+            {
+                mainGamePlay(); // main game logic
+
+                // game is over
+                if (score > highScore) highScore = score;
+                Console.WriteLine($" \n GAME OVER \n High Score: {highScore}");
+                
+
+                // check to restart to game
+
+                Console.Write("Do you want to play again? (Y/N): ");
+                ConsoleKeyInfo keyPressed = Console.ReadKey();
+                if (keyPressed.Key == ConsoleKey.N) playingGame = false;
+
+            
+            }
+        }
+
+        // play game
+        static void mainGamePlay()
+        {
+            //Console.BackgroundColor = ConsoleColor.Cyan;
+            //Console.ForegroundColor = ConsoleColor.DarkCyan;
+
+            playerPosX = 1;
+            playerPosY = 1;
             enemyPosX = length;
             enemyPosY = height;
             createItem();
@@ -56,8 +82,6 @@ namespace SimpleMovingGame
                 moveEnemey();
 
             }
-
-
         }
 
         static void moveEnemey()
@@ -121,8 +145,8 @@ namespace SimpleMovingGame
             {
                 for (int x = 1; x <= length; ++x)
                 {
-                    if (x == playerPosX && y == playerPosY) Console.Write(player);
-                    else if (x == enemyPosX && y == enemyPosY) Console.Write(enemy);
+                    if (x == enemyPosX && y == enemyPosY) Console.Write(enemy);
+                    else if (x == playerPosX && y == playerPosY) Console.Write(player);
                     else if (x == itemPosX && y == itemPosY) Console.Write(item);
                     else Console.Write(space);
                 }
