@@ -3,7 +3,7 @@
 
 namespace SimpleMovingGame
 {
-    public static class GameRun
+    public static class Main_GameRun
     {
         // variables
         static int playerPosX = 1, playerPosY = 1; // instantion on 1 line
@@ -51,7 +51,7 @@ namespace SimpleMovingGame
 
         static void moveEnemey()
         {
-            if (random.Next(0, 11) > 5 && playerPosX != enemyPosX) // X
+            if (random.Next(0, 11) > 5 && playerPosX != enemyPosX || playerPosY == enemyPosY) // X
             {
                 if (playerPosX < enemyPosX) --enemyPosX;
                 else if (playerPosX > enemyPosX) ++enemyPosX;
@@ -75,8 +75,9 @@ namespace SimpleMovingGame
         static void Draw()
         {
             Console.Clear();
-            Console.WriteLine($"          {playerPosX}, {playerPosY}\n");
-            Console.WriteLine($"          {enemyPosX}, {enemyPosY}\n");
+            Console.WriteLine();
+            Console.WriteLine($" Player's position {playerPosX}, {playerPosY}");
+            Console.WriteLine($" Enemy's position  {enemyPosX}, {enemyPosY}");
             Console.WriteLine(); // breakline
 
             for (int y = 1; y <= height; ++y)

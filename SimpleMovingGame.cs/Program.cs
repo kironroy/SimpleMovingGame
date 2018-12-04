@@ -13,8 +13,8 @@
             // intro
             GameStart.GameOverinBlue();
 
-            // game run main class
-            GameRun.RunTheGame();     
+            // MAIN GAME RUN
+            Main_GameRun.RunTheGame();     
 
             // gameover scene
             GameOver.GameOverinRed(); 
