@@ -7,10 +7,11 @@ namespace SimpleMovingGame
     {
         // variables
         static int playerPosX = 1, playerPosY = 1; // instantion on 1 line
-        static int enemyPosX = length;
-        static int enemyPosY = height;
+        static int enemyPosX, enemyPosY;
+        static int itemPosX, itemPosY;
+        static int score; 
         static int length = 10, height = 10;
-        static string player = " *", space = " |", enemy = " $";
+        static string player = " *", space = " |", enemy = " @", item = " $";
         static Random random = new Random();
 
         // main game
@@ -19,13 +20,22 @@ namespace SimpleMovingGame
             Console.BackgroundColor = ConsoleColor.Cyan;
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
+            enemyPosX = length;
+            enemyPosY = height;
+            createItem();
+
             while (true)
             {
 
                 Draw();
+                Console.WriteLine();
+                Console.WriteLine($" Score: {score}");
                 if (playerCollideWithEnemy()) break;
-
-
+                if (playerCollideWithItem())
+                {
+                    ++score;
+                    createItem();
+                }
 
 
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -51,6 +61,7 @@ namespace SimpleMovingGame
 
         static void moveEnemey()
         {
+            if (random.Next(0, 11) < 3) return;
             if (random.Next(0, 11) > 5 && playerPosX != enemyPosX || playerPosY == enemyPosY) // X
             {
                 if (playerPosX < enemyPosX) --enemyPosX;
@@ -71,6 +82,29 @@ namespace SimpleMovingGame
             return false;
         }
 
+        // check if the player has collected an item
+
+        static bool playerCollideWithItem()
+        {
+            if (playerPosX == itemPosX && playerPosY == itemPosY) return true;
+            return false;
+        }
+
+        // create a new item
+
+        static void createItem()
+        {
+            int itemX = random.Next(1, length + 1), itemY = playerPosY;
+
+            while (itemY > playerPosY - 2 && itemY < playerPosY + 2)
+            {
+                itemY = random.Next(1, height);
+            }
+
+            itemPosX = itemX;
+            itemPosY = itemY;
+        }
+
         // draw the game
         static void Draw()
         {
@@ -86,6 +120,7 @@ namespace SimpleMovingGame
                 {
                     if (x == playerPosX && y == playerPosY) Console.Write(player);
                     else if (x == enemyPosX && y == enemyPosY) Console.Write(enemy);
+                    else if (x == itemPosX && y == itemPosY) Console.Write(item);
                     else Console.Write(space);
                 }
                 Console.WriteLine();
