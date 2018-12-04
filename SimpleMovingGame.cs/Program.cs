@@ -3,24 +3,30 @@ using System.IO;
 
 namespace SimpleMovingGame.cs
 {
+ 
    
-  class Program
+  public class Program
     {
-        
+
         // variables
         static int playerPosX = 1, playerPosY = 1;
         static int length = 10, height = 10; // instantion on 1 line
-        static char player = '*', space = '-';
+        static string player = " *", space = " |";
 
         // main game
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
 
             while (true)
             {
                 
                 Draw();
+
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Green;
 
                 ConsoleKeyInfo keyPressed = Console.ReadKey();
 
@@ -44,8 +50,7 @@ namespace SimpleMovingGame.cs
         static void Draw()
         {
             Console.Clear();
-
-            Console.Write($"{playerPosX}, {playerPosY}\n");
+            Console.WriteLine($"          {playerPosX}, {playerPosY}\n");
             Console.WriteLine(); // breakline
 
             for (int y = 1; y <= height; ++y)
@@ -58,7 +63,14 @@ namespace SimpleMovingGame.cs
                 Console.WriteLine();
             }
 
+
+
             
         }
+
+       
+
+
+
     }
 }
