@@ -55,6 +55,7 @@ namespace SimpleMovingGame.cs
                     if (x == playerPosX && y == playerPosY) Console.Write(player);
                     else Console.Write(space);
                 }
+                Console.WriteLine();
             }
 
             
