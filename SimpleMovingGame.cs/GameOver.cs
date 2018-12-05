@@ -5,7 +5,7 @@ namespace SimpleMovingGame
 {
     public static class GameOver
     {
-        public static void typeWritter(string message)
+        public static void TypeWritter(string message)
         {
             for (int i = 0; i < message.Length; i++)
             {
@@ -38,7 +38,7 @@ namespace SimpleMovingGame
 
                ";
 
-            typeWritter(titleRed);
+            TypeWritter(titleRed);
             Console.WriteLine(); // breakline
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" -- Press enter twice to exit --");

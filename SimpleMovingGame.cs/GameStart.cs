@@ -5,7 +5,7 @@ namespace SimpleMovingGame
 {
     public static class GameStart
     {
-        public static void typeWritter(string message)
+        public static void TypeWritter(string message)
         {
             for (int i = 0; i < message.Length; i++)
             {
@@ -41,7 +41,7 @@ namespace SimpleMovingGame
 
                   ";
 
-            typeWritter(titleBlue);
+            TypeWritter(titleBlue);
             Console.WriteLine(); // breakline
             
             Console.ForegroundColor = ConsoleColor.Yellow;
