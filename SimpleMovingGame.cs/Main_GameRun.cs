@@ -26,11 +26,17 @@ namespace SimpleMovingGame
                 // game is over
                 if (score > highScore) highScore = score;
                 Console.WriteLine($" \n GAME OVER \n High Score: {highScore}");
-                
+                Console.Beep(3000, 50);
+                Console.Beep(2500, 50);
+                Console.Beep(3000, 50);
+                Console.Beep(2000, 50);
+                Console.Beep(3000, 50);
+                Console.Beep(1500, 50);
+
 
                 // check to restart to game
 
-                Console.Write("Do you want to play again? (Y/N): ");
+                Console.Write(" Do you want to play again? (Y/N): ");
                 ConsoleKeyInfo keyPressed = Console.ReadKey();
                 if (keyPressed.Key == ConsoleKey.N) playingGame = false;
 
@@ -60,6 +66,7 @@ namespace SimpleMovingGame
                 if (playerCollideWithItem())
                 {
                     ++score;
+                    Console.Beep(3000, 50);
                     createItem();
                     drawGameboard();
                 }
@@ -105,6 +112,7 @@ namespace SimpleMovingGame
         {
             if (playerPosX == enemyPosX && playerPosY == enemyPosY) return true;
             return false;
+            
         }
 
         // check if the player has collected an item
@@ -162,4 +170,3 @@ namespace SimpleMovingGame
     }
 }
 
-// GameOver.GameOverinRed();
