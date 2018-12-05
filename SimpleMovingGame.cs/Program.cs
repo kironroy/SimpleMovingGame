@@ -7,10 +7,8 @@ namespace SimpleMovingGame
 
     public class Program
     {
-
-
-
         // main game
+
         static void Main()
         {
             // intro

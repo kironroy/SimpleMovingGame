@@ -47,8 +47,7 @@ namespace SimpleMovingGame
         // play game
         static void mainGamePlay()
         {
-            //Console.BackgroundColor = ConsoleColor.Cyan;
-            //Console.ForegroundColor = ConsoleColor.DarkCyan;
+           
 
             playerPosX = 1;
             playerPosY = 1;
