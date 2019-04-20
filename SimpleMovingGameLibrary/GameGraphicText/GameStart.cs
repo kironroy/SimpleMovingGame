@@ -43,7 +43,7 @@ namespace SimpleMovingGame
 
             TypeWritter(titleBlue);
             Console.WriteLine(); // breakline
-            
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" Make sure the enemy does not catch you!");
             Console.WriteLine();

@@ -49,14 +49,14 @@ namespace SimpleMovingGame
                 ConsoleKeyInfo keyPressed = Console.ReadKey();
                 if (keyPressed.Key == ConsoleKey.N) playingGame = false;
 
-            
+
             }
         }
 
         // play game
         static void MainGamePlay()
         {
-           
+
 
             PlayerPosX = 1;
             playerPosY = 1;
@@ -120,7 +120,7 @@ namespace SimpleMovingGame
         {
             if (PlayerPosX == EnemyPosX && playerPosY == enemyPosY) return true;
             return false;
-            
+
         }
 
         // check if the player has collected an item
