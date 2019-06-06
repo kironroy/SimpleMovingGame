@@ -11,16 +11,23 @@ namespace SimpleMovingGame
 
         static void Main()
         {
-            // intro
-            GameStart.GameOverinBlue();
-
-            // MAIN GAME RUN
-            Main_GameRun.RunTheGame();     
-
-            // gameover scene
-            GameOver.GameOverinRed(); 
+            StartGame();
+            EndGame();
         }
 
+        private static void EndGame()
+        {
+            GameOver.GameOverinRed();
+        }
+
+        private static void StartGame()
+        {
+            GameStart gameStart = new GameStart();
+            gameStart.GameOverinBlue();
+
+            MainGameRun mainGameRun = new MainGameRun();
+            mainGameRun.RunTheGame();
+        }
     }
 }
 

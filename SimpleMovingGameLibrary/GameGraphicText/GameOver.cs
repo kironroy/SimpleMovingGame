@@ -41,7 +41,7 @@ namespace SimpleMovingGame
             TypeWritter(titleRed);
             Console.WriteLine(); // breakline
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(" -- Press enter twice to exit --");
+            " -- Press enter twice to exit --".PrintToConsole();
             Console.ReadKey();
             Console.Clear();
 

@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleFormatting\ConsoleHelpers.cs" />
     <Compile Include="GameGraphicText\GameOver.cs" />
     <Compile Include="GameGraphicText\GameStart.cs" />
-    <Compile Include="Main_GameRun.cs" />
+    <Compile Include="MainGameRun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

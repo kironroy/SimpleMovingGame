@@ -3,33 +3,34 @@
 
 namespace SimpleMovingGame
 {
-    public static class Main_GameRun
+    public class MainGameRun
     {
         // variables
-        static int playerPosX = 1, playerPosY = 1; // instantion on 1 line
-        static int enemyPosX, enemyPosY;
-        static int itemPosX, itemPosY;
-        static int score, highScore;
-        private static readonly int length = 10;
-        private static int height = 10;
-        private static readonly string player = " O";
-        private static string space = " |";
-        private static string enemy = " X";
-        private static string item = " $";
+        int playerPosX = 1, playerPosY = 1; // instantion on 1 line
+        int enemyPosX, enemyPosY;
+        int itemPosX, itemPosY;
+        int score, highScore;
+        private readonly int length = 10;
+        private int height = 10;
+        private readonly string player = " O";
+        private string space = " |";
+        private string enemy = " X";
+        private string item = " $";
         static Random random = new Random();
 
-        private static int PlayerPosX { get => playerPosX; set => playerPosX = value; }
-        private static int EnemyPosX { get => enemyPosX; set => enemyPosX = value; }
-        private static int ItemPosX { get => itemPosX; set => itemPosX = value; }
-        private static int Score { get => score; set => score = value; }
+        private int PlayerPosX { get => playerPosX; set => playerPosX = value; }
+        private int EnemyPosX { get => enemyPosX; set => enemyPosX = value; }
+        private int ItemPosX { get => itemPosX; set => itemPosX = value; }
+        private int Score { get => score; set => score = value; }
 
         // main game
-        public static void RunTheGame()
+        public void RunTheGame()
         {
             bool playingGame = true;
 
             while (playingGame)
             {
+
                 MainGamePlay(); // main game logic
 
                 // game is over
@@ -54,7 +55,7 @@ namespace SimpleMovingGame
         }
 
         // play game
-        static void MainGamePlay()
+        public void MainGamePlay()
         {
 
 
@@ -69,7 +70,7 @@ namespace SimpleMovingGame
 
                 DrawGameboard();
                 Console.WriteLine();
-                Console.WriteLine($" Score: {Score}");
+                $" Score: {Score}".PrintToConsole();
                 if (PlayerCollideWithEnemy()) break;
                 if (PlayerCollideWithItem())
                 {
@@ -99,7 +100,7 @@ namespace SimpleMovingGame
             }
         }
 
-        static void MoveEnemey()
+        public void MoveEnemey()
         {
             if (random.Next(0, 11) < 3) return;
             if (random.Next(0, 11) > 5 && PlayerPosX != EnemyPosX || playerPosY == enemyPosY) // X
@@ -116,7 +117,7 @@ namespace SimpleMovingGame
 
         // check if enemy has caught the player
 
-        static bool PlayerCollideWithEnemy()
+        public bool PlayerCollideWithEnemy()
         {
             if (PlayerPosX == EnemyPosX && playerPosY == enemyPosY) return true;
             return false;
@@ -125,7 +126,7 @@ namespace SimpleMovingGame
 
         // check if the player has collected an item
 
-        static bool PlayerCollideWithItem()
+        public bool PlayerCollideWithItem()
         {
             if (PlayerPosX == ItemPosX && playerPosY == itemPosY) return true;
             return false;
@@ -133,7 +134,7 @@ namespace SimpleMovingGame
 
         // create a new item
 
-        static void CreateItem()
+        public void CreateItem()
         {
             int itemX = random.Next(1, length + 1), itemY = playerPosY;
 
@@ -147,15 +148,15 @@ namespace SimpleMovingGame
         }
 
         // draw the game
-        static void DrawGameboard()
+        public void DrawGameboard()
         {
             Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine($" Player's position {PlayerPosX}, {playerPosY}");
+            "".PrintToConsole();
+            $" Player's position {PlayerPosX}, {playerPosY}".PrintToConsole();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($" Enemy's position  {EnemyPosX}, {enemyPosY}");
+            $" Enemy's position  {EnemyPosX}, {enemyPosY}".PrintToConsole();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(); // breakline
+            "".PrintToConsole();
 
             for (int y = 1; y <= height; ++y)
             {
@@ -166,7 +167,7 @@ namespace SimpleMovingGame
                     else if (x == ItemPosX && y == itemPosY) Console.Write(item);
                     else Console.Write(space);
                 }
-                Console.WriteLine();
+                "".PrintToConsole();
             }
 
 

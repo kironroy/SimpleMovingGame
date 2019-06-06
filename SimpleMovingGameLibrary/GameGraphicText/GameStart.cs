@@ -3,25 +3,25 @@
 
 namespace SimpleMovingGame
 {
-    public static class GameStart
+    public class GameStart
     {
-        public static void TypeWritter(string message)
+        public void TypeWritter(string message)
         {
             for (int i = 0; i < message.Length; i++)
             {
                 Console.Write(message[i]);
-                System.Threading.Thread.Sleep(2);
+                System.Threading.Thread.Sleep(1);
 
             }
 
         }
-        public static void GameOverinBlue()
+        public void GameOverinBlue()
         {
 
             Console.ForegroundColor = ConsoleColor.Blue;
 
             Console.Title = "ASCII Art";
-            Console.WriteLine(); // breakline
+            "".PrintToConsole(); // breakline
             string titleBlue =
                  @"
                                        
@@ -45,11 +45,11 @@ namespace SimpleMovingGame
             Console.WriteLine(); // breakline
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(" Make sure the enemy does not catch you!");
-            Console.WriteLine();
-            Console.WriteLine("  Press A to move left, \n  D to move right, \n  S to move down, \n  W to move up  ");
-            Console.WriteLine();
-            Console.WriteLine(" Press any key to begin");
+            " Make sure the enemy does not catch you!".PrintToConsole();
+            "".PrintToConsole();
+            " Press \n  A to move left, \n  D to move right, \n  S to move down, \n  W to move up  ".PrintToConsole();
+            "".PrintToConsole();
+            " Press any key to begin".PrintToConsole();
             Console.ReadKey();
             Console.Clear();
 
